@@ -235,24 +235,24 @@
                                                 <button type="button" onclick="closeModal()" class="btn-cancel">Cancel</button> <!-- Set type to button -->
                                             </form>
                                         </div>
-                                    </div>                                    
+                                      </div>                                    
                                       <script>
-                                        let ticketIdToDelete = null;
+                                          let ticketIdToDelete = null;
 
-                                        function openModal(ticketId) {
-                                            ticketIdToDelete = ticketId; // Store the ticket ID to delete
-                                            document.getElementById("deleteModal").style.display = "block"; // Show the modal
-                                        }
+                                          function openModal(ticketId) {
+                                              ticketIdToDelete = ticketId; // Store the ticket ID to delete
+                                              document.getElementById("deleteModal").style.display = "block"; // Show the modal
+                                          }
 
-                                        function closeModal() {
-                                            document.getElementById("deleteModal").style.display = "none"; // Hide the modal
-                                        }
+                                          function closeModal() {
+                                              document.getElementById("deleteModal").style.display = "none"; // Hide the modal
+                                          }
 
-                                        document.getElementById("confirmDeleteButton").onclick = function() {
-                                            if (ticketIdToDelete) {
-                                                window.location.href = "#".replace('0', ticketIdToDelete); // Redirect to delete
-                                            }
-                                        }
+                                          document.getElementById("confirmDeleteButton").onclick = function() {
+                                              if (ticketIdToDelete) {
+                                                  window.location.href = "#".replace('0', ticketIdToDelete); // Redirect to delete
+                                              }
+                                          }
                                       </script>
 
                                       <style>
@@ -305,25 +305,25 @@
                                           cursor: pointer; /* Pointer cursor on hover */
                                           font-size: 16px; /* Font size */
                                           margin-right: 10px; 
-                                      }
-                                      
-                                      .btn-delete:hover {
-                                          background-color: #b91c1c; /* Darker red on hover */
-                                      }
-                                      
-                                      .btn-cancel {
-                                          background-color: #d1d5db; /* Gray background */
-                                          color: black; /* Black text */
-                                          border: none; /* No border */
-                                          padding: 10px 20px; /* Padding for better appearance */
-                                          border-radius: 5px; /* Rounded corners */
-                                          cursor: pointer; /* Pointer cursor on hover */
-                                          font-size: 16px; /* Font size */
-                                      }
-                                      
-                                      .btn-cancel:hover {
-                                          background-color: #9ca3af; /* Darker gray on hover */
-                                      }
+                                        }
+                                        
+                                        .btn-delete:hover {
+                                            background-color: #b91c1c; /* Darker red on hover */
+                                        }
+                                        
+                                        .btn-cancel {
+                                            background-color: #d1d5db; /* Gray background */
+                                            color: black; /* Black text */
+                                            border: none; /* No border */
+                                            padding: 10px 20px; /* Padding for better appearance */
+                                            border-radius: 5px; /* Rounded corners */
+                                            cursor: pointer; /* Pointer cursor on hover */
+                                            font-size: 16px; /* Font size */
+                                        }
+                                        
+                                        .btn-cancel:hover {
+                                            background-color: #9ca3af; /* Darker gray on hover */
+                                        }
                                       </style>
 
                                     </div>
