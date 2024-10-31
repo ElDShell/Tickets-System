@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from tickets.models import Ticket
+from django.db.models import Case, When, IntegerField
 # Create your views here.
 #LoginRequiredMixin,
 class Dashboard(LoginRequiredMixin,TemplateView):
@@ -13,7 +14,16 @@ class Dashboard(LoginRequiredMixin,TemplateView):
         if self.request.user:
             if self.request.user.is_admin:
                 context["all_tickets"] = Ticket.objects.all().count()
-                context["table_tickets"] = Ticket.objects.all().order_by('-id')[:3]
+                context["table_tickets"] = (
+                    Ticket.objects.annotate(
+                        is_active=Case(
+                        When(status='Active',then=1),
+                        default=0,
+                        output_field=IntegerField(),
+                        )
+                    )
+                    .order_by('-is_active','-id')[:3]
+                )
                 context["all_active_tickets"] = Ticket.objects.filter(status='Active').count()
                 context["all_closed_tickets"] = Ticket.objects.filter(is_resolved=True).count()
                 context["all_pending_tickets"] = Ticket.objects.filter(status='Pending').count()
